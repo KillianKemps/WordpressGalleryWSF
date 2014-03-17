@@ -16,13 +16,6 @@ define ('WSF_PORTFOLIO_DIR', plugin_dir_path(__FILE__));
 //Classes
 require_once( WSF_PORTFOLIO_DIR . '/inc/cpt.php');
 require_once( WSF_PORTFOLIO_DIR . '/inc/fields.php');
+require_once( WSF_PORTFOLIO_DIR . '/inc/shortcode.php');
 
-add_shortcode( 'wsf', 'shortcode_wsf');
-
-function shortcode_wsf($atts){
-	extract( shortcode_atts( array(
-		'id_gallery' => '',
-		), $atts));
-	return "<p>Hello: " . $id_gallery . "</p>";
-}
 
