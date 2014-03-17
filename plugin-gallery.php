@@ -18,4 +18,5 @@ require_once( WSF_PORTFOLIO_DIR . '/inc/cpt.php');
 require_once( WSF_PORTFOLIO_DIR . '/inc/fields.php');
 require_once( WSF_PORTFOLIO_DIR . '/inc/shortcode.php');
 
+new shortcode_gallery();
 
