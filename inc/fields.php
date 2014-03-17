@@ -7,23 +7,26 @@ if(function_exists("register_field_group"))
 		'title' => 'Entrées galerie',
 		'fields' => array (
 			array (
-				'key' => 'field_5325d0e6d4a79',
-				'label' => 'Image',
-				'name' => 'image',
-				'type' => 'image',
-				'required' => 1,
-				'save_format' => 'id',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_5325d119d4a7a',
-				'label' => 'Image miniature',
-				'name' => 'image_miniature',
-				'type' => 'image',
-				'save_format' => 'url',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
+				'key' => 'field_5326fcc469d96',
+				'label' => 'Slides',
+				'name' => 'slides',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_5326fcd769d97',
+						'label' => 'Image',
+						'name' => 'image',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'id',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+				),
+				'row_min' => 0,
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Ajouter une image',
 			),
 		),
 		'location' => array (
@@ -46,6 +49,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
 
 
 /*if(function_exists("register_field_group"))
