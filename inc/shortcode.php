@@ -5,6 +5,8 @@ class shortcode_gallery {
 		add_shortcode( 'slider', array( $this, 'shortcode_gallery'));
 		add_shortcode( 'slider-list', array( $this, 'shortcode_gallery_list'));
 		add_action('init', array( $this, 'enqueue'), 30 );
+		add_action('init', array( $this, 'image_size'), 30 );
+
 	}
 
 	function shortcode_gallery($atts){
@@ -12,15 +14,27 @@ class shortcode_gallery {
 				'id_gallery' => '',
 			), $atts));
 
+		
 		$slides = get_field('slides', $id_gallery);
+		$return = '';
 			if ( !empty ( $slides ) && is_array($slides) ) :
-				echo "<ul class=\"bxslider\">";
+				$return .= "<ul class=\"bxslider\">";
 				foreach ($slides as $image_container => $image) {
-					echo wp_get_attachment_image( $image['image'], 'full' );
-					//echo wp_get_attachment_image( $image['image'], 'thumbnail' );
+					$return .= "<li>" . wp_get_attachment_image( $image['image'], 'full' ) . "</li>";
+	
 				}
-				echo '</ul>';
+				$return .= '</ul>';
+
+				$return .= "<div id=\"bx-pager\">";
+				$i = 0;
+				foreach ($slides as $image_container => $image) {
+
+					$return .= "<a data-slide-index=\"" . $i . "\" href=\"#\">" . wp_get_attachment_image( $image['image'], 'slider_thumb' ) . "</a>";
+					$i++;
+				}
+				$return .= '</div>';
 			endif;
+			return $return;
 	}
 
 	function enqueue() {
@@ -67,5 +81,11 @@ class shortcode_gallery {
 			return false;
 		}
 	}
+
+	function image_size(){
+		add_theme_support('post-thumbnails');
+		add_image_size('slider_thumb', '100', '120', true );
+	}
+
 }
 
