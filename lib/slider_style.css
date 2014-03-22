@@ -1,0 +1,7 @@
+/* CSS Addition to the slider */
+
+.bx-wrapper img {
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}

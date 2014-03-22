@@ -73,6 +73,14 @@ class shortcode_gallery {
 			'1.0.0',
 			'all'
 		);
+
+		wp_enqueue_style(
+			'slider-style',
+			WSF_PORTFOLIO_URL . 'slider-bxslider/lib/slider_style.css',
+			false,
+			'1.0.0',
+			'all'
+		);
 	}
 
 	function image_size(){
