@@ -20,13 +20,13 @@ class shortcode_gallery {
 		$return = '';
 			if ( !empty ( $slides ) && is_array($slides) ) :
 				//Add images in full size
-				$return .= "<ul class=\"bxslider\">";
+				$return .= "<ul class=\"bxslider\" id=\"gallery-" . $id_gallery . "\">";
 				foreach ($slides as $image_container => $image) {
 					$return .= "<li>" . wp_get_attachment_image( $image['image'], 'full' ) . "</li>";
 				}
 				$return .= '</ul>';
 				//Add the thumbnails
-				$return .= "<div id=\"bx-pager\">";
+				$return .= "<div id=\"bx-pager-" . $id_gallery . "\">";
 				$i = 0;
 				foreach ($slides as $image_container => $image) {
 					$return .= "<a data-slide-index=\"" . $i . "\" href=\"#\">" . wp_get_attachment_image( $image['image'], 'slider_thumb' ) . "</a>";
